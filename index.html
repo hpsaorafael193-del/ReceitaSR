@@ -251,6 +251,9 @@
             font-family: 'Times New Roman', serif;
             line-height: 1.6;
             margin-bottom: 20px;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
         }
         
         .receita-header {
@@ -258,6 +261,7 @@
             margin-bottom: 25px;
             border-bottom: 2px solid #491100;
             padding-bottom: 15px;
+            flex-shrink: 0;
         }
         
         .receita-header h3 {
@@ -268,32 +272,55 @@
         
         .receita-content {
             margin-bottom: 25px;
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         
         .paciente-info {
             margin-bottom: 20px;
+            flex-shrink: 0;
         }
         
         .medicamentos-list {
             margin: 20px 0;
+            flex: 1;
+            overflow-y: auto;
+            min-height: 200px;
+            max-height: 300px;
         }
         
         .medicamento-preview {
             margin-bottom: 15px;
             padding-left: 15px;
             border-left: 3px solid #491100;
+            break-inside: avoid;
+        }
+        
+        .observacoes {
+            flex-shrink: 0;
+            margin-top: 20px;
+        }
+        
+        .observacoes p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
         }
         
         .assinatura-preview-final {
-            margin-top: 40px;
+            margin-top: auto;
             text-align: center;
             border-top: 1px solid #491100;
             padding-top: 20px;
+            flex-shrink: 0;
         }
         
         .assinatura-imagem-final {
             max-height: 60px;
             margin-bottom: 10px;
+            max-width: 100%;
         }
         
         .assinatura-line {
@@ -381,52 +408,141 @@
         }
 
         /* Estilo específico para o PNG gerado */
-        .receita-padrao {
-            width: 794px !important;
-            height: 1123px !important;
-            padding: 50px !important;
-            background: white !important;
-            border: none !important;
-            border-radius: 0 !important;
-            font-family: 'Times New Roman', Times, serif !important;
-            line-height: 1.6 !important;
+        #receita-print {
+            width: 794px;
+            min-height: 1123px;
+            padding: 70px 60px;
+            background: white;
+            border: none;
+            border-radius: 0;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.6;
+            color: black;
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10000;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
 
-        .receita-padrao .receita-header {
+        #receita-print .receita-header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             border-bottom: 3px solid #491100;
+            padding-bottom: 25px;
+            flex-shrink: 0;
+        }
+
+        #receita-print .receita-header h3 {
+            font-size: 32px;
+            color: #491100;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        #receita-print .receita-header p {
+            font-size: 20px;
+            color: #491100;
+        }
+
+        #receita-print .receita-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        #receita-print .paciente-info {
+            margin-bottom: 40px;
+            font-size: 18px;
+            flex-shrink: 0;
+            border-bottom: 1px solid #e8d5b5;
             padding-bottom: 20px;
         }
 
-        .receita-padrao .receita-header h3 {
-            font-size: 28px !important;
-            color: #491100;
-            margin-bottom: 10px;
+        #receita-print .paciente-info p {
+            margin-bottom: 8px;
         }
 
-        .receita-padrao .paciente-info {
-            margin-bottom: 30px;
-            font-size: 16px;
+        #receita-print .medicamentos-list {
+            flex: 1;
+            margin: 20px 0;
+            min-height: 350px;
         }
 
-        .receita-padrao .medicamento-preview {
-            margin-bottom: 20px;
+        #receita-print .medicamento-preview {
+            margin-bottom: 25px;
             padding-left: 20px;
-            border-left: 3px solid #491100;
-            font-size: 15px;
+            border-left: 4px solid #491100;
+            font-size: 17px;
         }
 
-        .receita-padrao .assinatura-preview-final {
-            margin-top: 80px;
+        #receita-print .medicamento-preview p {
+            margin-bottom: 8px;
+        }
+
+        #receita-print .medicamento-preview strong {
+            font-size: 18px;
+        }
+
+        #receita-print .observacoes {
+            margin-top: 30px;
+            flex-shrink: 0;
+            border-top: 1px solid #e8d5b5;
+            padding-top: 20px;
+        }
+
+        #receita-print .observacoes p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            white-space: pre-wrap;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        #receita-print .assinatura-preview-final {
+            margin-top: 60px;
             text-align: center;
             border-top: 2px solid #491100;
             padding-top: 30px;
+            flex-shrink: 0;
         }
 
-        .receita-padrao .assinatura-imagem-final {
-            max-height: 80px;
+        #receita-print .assinatura-imagem-final {
+            max-height: 90px;
             margin-bottom: 15px;
+            max-width: 300px;
+        }
+
+        #receita-print .assinatura-line {
+            margin-top: 20px;
+            border-top: 2px solid #491100;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+
+        #receita-print .assinatura-preview-final p {
+            margin-bottom: 5px;
+            font-size: 17px;
+        }
+
+        #receita-print .assinatura-preview-final strong {
+            font-size: 18px;
+        }
+
+        /* Estilos para garantir que o texto não ultrapasse */
+        .texto-quebra {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: pre-wrap;
+            max-width: 100%;
         }
     </style>
 </head>
@@ -529,7 +645,7 @@
                         
                         <div class="observacoes">
                             <p><strong>Observações:</strong></p>
-                            <p id="preview-observacoes">—</p>
+                            <p id="preview-observacoes" class="texto-quebra">—</p>
                         </div>
                     </div>
                     
@@ -726,7 +842,7 @@
             previewCrm.textContent = document.getElementById('crm').value || '—';
             previewEspecialidade.textContent = document.getElementById('especialidade').value || '—';
             const observacoesTexto = document.getElementById('observacoes').value || '—';
-            previewObservacoes.innerHTML = observacoesTexto.replace(/\n/g, '<br>');
+            previewObservacoes.textContent = observacoesTexto;
             
             // Medicamentos
             let medicamentosHTML = '';
@@ -760,103 +876,102 @@
         }
 
         function gerarPDF() {
-            // Criar um clone da receita com formatação padrão
-            const previewOriginal = document.getElementById('receita-preview');
-            const clone = previewOriginal.cloneNode(true);
+            // Criar elemento visível para captura
+            const printContainer = document.createElement('div');
+            printContainer.id = 'receita-print';
             
-            // Aplicar classes de formatação padrão
-            clone.className = 'receita-padrao';
-            
-            // Aplicar estilos fixos para o PNG
-            clone.style.width = '794px';
-            clone.style.height = '1123px';
-            clone.style.padding = '50px';
-            clone.style.background = 'white';
-            clone.style.border = 'none';
-            clone.style.borderRadius = '0';
-            clone.style.fontFamily = 'Times New Roman, Times, serif';
-            clone.style.lineHeight = '1.6';
-            clone.style.position = 'absolute';
-            clone.style.left = '-9999px';
-            clone.style.top = '0';
-            
-            document.body.appendChild(clone);
-            
-            // Forçar estilos específicos para o PNG
-            const forceStyles = `
-                <style>
-                    .receita-padrao {
-                        width: 794px !important;
-                        height: 1123px !important;
-                        padding: 50px !important;
-                        background: white !important;
-                        border: none !important;
-                        border-radius: 0 !important;
-                        font-family: 'Times New Roman', Times, serif !important;
-                        line-height: 1.6 !important;
-                    }
-                    .receita-padrao .receita-header {
-                        text-align: center !important;
-                        margin-bottom: 40px !important;
-                        border-bottom: 3px solid #491100 !important;
-                        padding-bottom: 20px !important;
-                    }
-                    .receita-padrao .receita-header h3 {
-                        font-size: 28px !important;
-                        color: #491100 !important;
-                        margin-bottom: 10px !important;
-                    }
-                    .receita-padrao .paciente-info {
-                        margin-bottom: 30px !important;
-                        font-size: 16px !important;
-                    }
-                    .receita-padrao .medicamento-preview {
-                        margin-bottom: 20px !important;
-                        padding-left: 20px !important;
-                        border-left: 3px solid #491100 !important;
-                        font-size: 15px !important;
-                    }
-                    .receita-padrao .assinatura-preview-final {
-                        margin-top: 80px !important;
-                        text-align: center !important;
-                        border-top: 2px solid #491100 !important;
-                        padding-top: 30px !important;
-                    }
-                    .receita-padrao .assinatura-imagem-final {
-                        max-height: 80px !important;
-                        margin-bottom: 15px !important;
-                    }
-                    * {
-                        opacity: 1 !important;
-                        color: #000000 !important;
-                    }
-                </style>
+            // Conteúdo da receita formatado para A4
+            printContainer.innerHTML = `
+                <div class="receita-header">
+                    <h3>RECEITUÁRIO MÉDICO</h3>
+                    <p>Hospital São Rafael</p>
+                </div>
+                
+                <div class="receita-content">
+                    <div class="paciente-info">
+                        <p><strong>Paciente:</strong> ${document.getElementById('paciente').value || '—'}</p>
+                        <p><strong>Passaporte:</strong> ${document.getElementById('Passaporte').value || '—'}</p>
+                        <p><strong>Data:</strong> ${document.getElementById('data').value || '—'}</p>
+                    </div>
+                    
+                    <div class="medicamentos-list">
+                        ${gerarHTMLMedicamentos()}
+                    </div>
+                    
+                    <div class="observacoes">
+                        <p><strong>Observações:</strong></p>
+                        <p class="texto-quebra">${document.getElementById('observacoes').value || '—'}</p>
+                    </div>
+                </div>
+                
+                <div class="assinatura-preview-final">
+                    ${assinaturaData ? `<img src="${assinaturaData}" class="assinatura-imagem-final" alt="Assinatura">` : '<div class="assinatura-line"></div>'}
+                    <p><strong>${document.getElementById('medico').value || '—'}</strong></p>
+                    <p>${document.getElementById('crm').value || '—'} - ${document.getElementById('especialidade').value || '—'}</p>
+                </div>
             `;
             
-            clone.insertAdjacentHTML('beforeend', forceStyles);
+            document.body.appendChild(printContainer);
+            
+            // Pequeno delay para garantir que o elemento seja renderizado
+            setTimeout(() => {
+                html2canvas(printContainer, {
+                    scale: 2,
+                    backgroundColor: '#ffffff',
+                    useCORS: true,
+                    logging: false,
+                    width: printContainer.offsetWidth,
+                    height: printContainer.scrollHeight,
+                    scrollX: 0,
+                    scrollY: 0
+                }).then(canvas => {
+                    // Remover o container após a captura
+                    document.body.removeChild(printContainer);
+                    
+                    // Criar e disparar o download
+                    const link = document.createElement('a');
+                    const nomePaciente = document.getElementById('paciente').value || 'medica';
+                    const dataAtual = new Date().toISOString().slice(0,10);
+                    link.download = `receita_${nomePaciente}_${dataAtual}.png`;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+                }).catch(err => {
+                    document.body.removeChild(printContainer);
+                    console.error('Erro ao gerar PNG:', err);
+                    alert('Erro ao gerar PNG. Tente novamente.');
+                });
+            }, 500);
+        }
 
-            // Gerar PNG
-            html2canvas(clone, {
-                scale: 2,
-                backgroundColor: '#ffffff',
-                useCORS: true,
-                scrollX: 0,
-                scrollY: 0,
-                windowWidth: 794,
-                windowHeight: 1123,
-                logging: false
-            }).then(canvas => {
-                document.body.removeChild(clone);
+        function gerarHTMLMedicamentos() {
+            let medicamentosHTML = '';
+            
+            if (medicamentos.length === 0) {
+                medicamentosHTML = '<p>Nenhum medicamento adicionado.</p>';
+            } else {
+                medicamentos.forEach((medId, index) => {
+                    const nome = document.getElementById(`medicamento-nome-${index + 1}`)?.value || '';
+                    const dosagem = document.getElementById(`medicamento-dosagem-${index + 1}`)?.value || '';
+                    const posologia = document.getElementById(`medicamento-posologia-${index + 1}`)?.value || '';
+                    const duracao = document.getElementById(`medicamento-duracao-${index + 1}`)?.value || '';
+                    
+                    if (nome || dosagem || posologia || duracao) {
+                        medicamentosHTML += `
+                            <div class="medicamento-preview">
+                                <p><strong class="texto-quebra">${nome} ${dosagem}</strong></p>
+                                <p class="texto-quebra">${posologia}</p>
+                                <p><em class="texto-quebra">Duração: ${duracao}</em></p>
+                            </div>
+                        `;
+                    }
+                });
                 
-                const link = document.createElement('a');
-                link.download = `receita-${document.getElementById('paciente').value || 'medica'}.png`;
-                link.href = canvas.toDataURL('image/png', 1.0);
-                link.click();
-            }).catch(err => {
-                document.body.removeChild(clone);
-                console.error('Erro ao gerar PNG:', err);
-                alert('Erro ao gerar PNG. Tente novamente.');
-            });
+                if (!medicamentosHTML) {
+                    medicamentosHTML = '<p>Nenhum medicamento adicionado.</p>';
+                }
+            }
+            
+            return medicamentosHTML;
         }
 
         function limparTudo() {
