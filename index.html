@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital São Rafael - Gerador de Receitas</title>
+    <title>Hospital São Rafael - Receituario Médico</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
     <style>
@@ -13,7 +14,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #f9e2b5 0%, #f5d9a6 100%);
             min-height: 100vh;
@@ -23,7 +24,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
@@ -33,7 +34,7 @@
             overflow: hidden;
             border: 1px solid #e8d5b5;
         }
-        
+
         .header {
             background: linear-gradient(135deg, #491100 0%, #3a0e00 100%);
             color: #f9e2b5;
@@ -53,13 +54,13 @@
             background: radial-gradient(circle, rgba(249, 226, 181, 0.1) 0%, rgba(249, 226, 181, 0) 70%);
             transform: rotate(30deg);
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             font-weight: 700;
             position: relative;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
@@ -67,14 +68,14 @@
             opacity: 0.9;
             position: relative;
         }
-        
+
         .content {
             padding: 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
-        
+
         .form-section {
             background-color: #fef9ec;
             border-radius: 10px;
@@ -82,7 +83,7 @@
             box-shadow: 0 4px 15px rgba(73, 17, 0, 0.1);
             border-left: 5px solid #491100;
         }
-        
+
         h2 {
             color: #491100;
             margin-bottom: 20px;
@@ -97,19 +98,21 @@
         h2 i {
             color: #491100;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: #491100;
         }
-        
-        input, select, textarea {
+
+        input,
+        select,
+        textarea {
             width: 100%;
             padding: 12px;
             border-radius: 8px;
@@ -119,18 +122,20 @@
             font-weight: 500;
             transition: all 0.3s;
         }
-        
-        input:focus, select:focus, textarea:focus {
+
+        input:focus,
+        select:focus,
+        textarea:focus {
             outline: none;
             border-color: #491100;
             box-shadow: 0 0 0 2px rgba(73, 17, 0, 0.2);
         }
-        
+
         textarea {
             resize: vertical;
             min-height: 100px;
         }
-        
+
         .medicamento-item {
             background: #f9e2b5;
             border-radius: 8px;
@@ -138,14 +143,14 @@
             margin-bottom: 15px;
             border: 1px solid #e8d5b5;
         }
-        
+
         .medicamento-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-        
+
         .btn-remove {
             background: linear-gradient(135deg, #6b2a00, #491100);
             color: #f9e2b5;
@@ -155,7 +160,7 @@
             cursor: pointer;
             font-size: 0.8rem;
         }
-        
+
         .btn-add {
             background: linear-gradient(135deg, #491100, #3a0e00);
             color: #f9e2b5;
@@ -172,12 +177,12 @@
             width: 100%;
             justify-content: center;
         }
-        
+
         .btn-add:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(73, 17, 0, 0.4);
         }
-        
+
         /* Estilos para assinatura */
         .assinatura-section {
             margin-top: 20px;
@@ -186,7 +191,7 @@
             border-radius: 8px;
             border: 1px solid #e8d5b5;
         }
-        
+
         .assinatura-preview {
             height: 80px;
             border: 2px dashed #491100;
@@ -198,18 +203,18 @@
             background: #fdf6e3;
             overflow: hidden;
         }
-        
+
         .assinatura-preview img {
             max-height: 70px;
             max-width: 100%;
         }
-        
+
         .assinatura-controls {
             display: flex;
             gap: 10px;
             margin-top: 10px;
         }
-        
+
         .btn-assinatura {
             background: linear-gradient(135deg, #491100, #3a0e00);
             color: #f9e2b5;
@@ -226,12 +231,12 @@
             justify-content: center;
             font-size: 0.9rem;
         }
-        
+
         .btn-assinatura:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(73, 17, 0, 0.3);
         }
-        
+
         .preview-section {
             background-color: #ffffff;
             border-radius: 10px;
@@ -241,7 +246,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .receita-preview {
             flex: 1;
             background: white;
@@ -255,7 +260,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .receita-header {
             text-align: center;
             margin-bottom: 25px;
@@ -263,13 +268,13 @@
             padding-bottom: 15px;
             flex-shrink: 0;
         }
-        
+
         .receita-header h3 {
             font-size: 1.8rem;
             color: #491100;
             margin-bottom: 5px;
         }
-        
+
         .receita-content {
             margin-bottom: 25px;
             flex: 1;
@@ -277,12 +282,12 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .paciente-info {
             margin-bottom: 20px;
             flex-shrink: 0;
         }
-        
+
         .medicamentos-list {
             margin: 20px 0;
             flex: 1;
@@ -290,25 +295,25 @@
             min-height: 200px;
             max-height: 300px;
         }
-        
+
         .medicamento-preview {
             margin-bottom: 15px;
             padding-left: 15px;
             border-left: 3px solid #491100;
             break-inside: avoid;
         }
-        
+
         .observacoes {
             flex-shrink: 0;
             margin-top: 20px;
         }
-        
+
         .observacoes p {
             word-wrap: break-word;
             overflow-wrap: break-word;
             max-width: 100%;
         }
-        
+
         .assinatura-preview-final {
             margin-top: auto;
             text-align: center;
@@ -316,13 +321,13 @@
             padding-top: 20px;
             flex-shrink: 0;
         }
-        
+
         .assinatura-imagem-final {
             max-height: 60px;
             margin-bottom: 10px;
             max-width: 100%;
         }
-        
+
         .assinatura-line {
             margin-top: 60px;
             border-top: 1px solid #491100;
@@ -330,13 +335,13 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .controls {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .btn-gerar {
             background: linear-gradient(135deg, #491100, #3a0e00);
             color: #f9e2b5;
@@ -353,12 +358,12 @@
             justify-content: center;
             box-shadow: 0 4px 10px rgba(73, 17, 0, 0.3);
         }
-        
+
         .btn-gerar:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(73, 17, 0, 0.4);
         }
-        
+
         .btn-limpar {
             background: linear-gradient(135deg, #6b2a00, #491100);
             color: #f9e2b5;
@@ -374,12 +379,12 @@
             flex: 1;
             justify-content: center;
         }
-        
+
         .btn-limpar:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(73, 17, 0, 0.4);
         }
-        
+
         .footer {
             text-align: center;
             padding: 20px;
@@ -393,15 +398,15 @@
             .content {
                 grid-template-columns: 1fr;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
+
             .controls {
                 flex-direction: column;
             }
-            
+
             .assinatura-controls {
                 flex-direction: column;
             }
@@ -426,7 +431,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 10000;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
 
         #receita-print .receita-header {
@@ -546,32 +551,28 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
-            <h1><i class="fas fa-prescription"></i> Gerador de Receitas Médicas</h1>
+            <h1><i class="fas fa-prescription"></i> Receituario Médico</h1>
             <p>Hospital São Rafael - Prescrições seguras e padronizadas</p>
         </div>
-        
+
         <div class="content">
             <div class="form-section">
                 <h2><i class="fas fa-user-md"></i> Dados do Profissional</h2>
-                
+
                 <div class="form-group">
                     <label for="medico">Nome do Médico</label>
                     <input type="text" id="medico" placeholder="Dr. João Silva">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="crm">CRM</label>
                     <input type="text" id="crm" placeholder="CRM-XX 123456">
                 </div>
-                
-                <div class="form-group">
-                    <label for="especialidade">Especialidade</label>
-                    <input type="text" id="especialidade" placeholder="Clínico Geral">
-                </div>
-                
+
                 <div class="assinatura-section">
                     <h3><i class="fas fa-signature"></i> Assinatura Digital</h3>
                     <div class="assinatura-preview" id="assinatura-preview">
@@ -587,77 +588,77 @@
                     </div>
                     <input type="file" id="assinatura-file" accept="image/*" style="display: none;">
                 </div>
-                
+
                 <h2><i class="fas fa-user-injured"></i> Dados do Paciente</h2>
-                
+
                 <div class="form-group">
                     <label for="paciente">Nome do Paciente</label>
                     <input type="text" id="paciente" placeholder="Maria Santos">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="Passaporte">Passaporte</label>
                     <input type="text" id="Passaporte" placeholder="8888">
                 </div>
-                
+
                 <div class="form-group">
                     <label for="data">Data da Prescrição</label>
                     <input type="text" id="data" placeholder="dd/mm/aaaa">
                 </div>
-                
-                <h2><i class="fas fa-pills"></i> Medicamentos</h2>
-                
-                <div id="medicamentos-container">
-                    <!-- Medicamentos serão adicionados aqui -->
-                </div>
-                
-                <button class="btn-add" id="btn-add-medicamento">
-                    <i class="fas fa-plus"></i> Adicionar Medicamento
-                </button>
-                
-                <h2><i class="fas fa-stethoscope"></i> Observações</h2>
-                
-                <div class="form-group">
-                    <label for="observacoes">Instruções e Observações</label>
-                    <textarea id="observacoes" placeholder="Ex: Tomar após as refeições..."></textarea>
-                </div>
+
+                <<h2><i class="fas fa-pills"></i> Medicamentos</h2>
+                    <div class="form-group">
+                        <label for="medicamentos-texto">Prescrição de Medicamentos</label>
+                        <textarea id="medicamentos-texto" placeholder="Digite os medicamentos aqui, um por linha. Exemplo:
+
+Paracetamol 500mg - 1 comprimido de 8/8 horas - Duração: 7 dias
+Amoxicilina 500mg - 1 cápsula de 12/12 horas - Duração: 10 dias
+Ibuprofeno 400mg - 1 comprimido quando necessário - Máximo: 3 por dia" rows="8"></textarea>
+                    </div>
+
+                    <h2><i class="fas fa-stethoscope"></i> Observações</h2>
+
+                    <div class="form-group">
+                        <label for="observacoes">Instruções e Observações</label>
+                        <textarea id="observacoes" placeholder="Ex: Tomar após as refeições..."></textarea>
+                    </div>
             </div>
-            
+
             <div class="preview-section">
                 <h2><i class="fas fa-file-prescription"></i> Prévia da Receita</h2>
-                
+
                 <div class="receita-preview" id="receita-preview">
                     <div class="receita-header">
                         <h3>RECEITUÁRIO MÉDICO</h3>
                         <p>Hospital São Rafael</p>
                     </div>
-                    
+
                     <div class="receita-content">
                         <div class="paciente-info">
                             <p><strong>Paciente:</strong> <span id="preview-paciente">—</span></p>
                             <p><strong>Passaporte:</strong> <span id="preview-Passaporte">—</span></p>
                             <p><strong>Data:</strong> <span id="preview-data">—</span></p>
                         </div>
-                        
+
                         <div class="medicamentos-list" id="preview-medicamentos">
                             <p>Nenhum medicamento adicionado.</p>
                         </div>
-                        
+
                         <div class="observacoes">
                             <p><strong>Observações:</strong></p>
                             <p id="preview-observacoes" class="texto-quebra">—</p>
                         </div>
                     </div>
-                    
+
                     <div class="assinatura-preview-final">
                         <div id="preview-assinatura">
                             <div class="assinatura-line"></div>
                         </div>
                         <p><strong id="preview-medico">—</strong></p>
-                        <p><span id="preview-crm">—</span> - <span id="preview-especialidade">—</span></p>
+                        <p><span id="preview-crm">—</span></p>
                     </div>
                 </div>
-                
+
                 <div class="controls">
                     <button class="btn-gerar" id="btn-gerar-pdf">
                         <i class="fas fa-download"></i> Gerar PNG
@@ -668,7 +669,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="footer">
             <p>Hospital São Rafael &copy; 2025 - Sistema de Prescrição Médica</p>
         </div>
@@ -677,12 +678,9 @@
     <script>
         // Estado da aplicação
         let medicamentos = [];
-        let medicamentoCount = 0;
         let assinaturaData = null;
 
         // Elementos DOM
-        const medicamentosContainer = document.getElementById('medicamentos-container');
-        const btnAddMedicamento = document.getElementById('btn-add-medicamento');
         const btnGerarPDF = document.getElementById('btn-gerar-pdf');
         const btnLimpar = document.getElementById('btn-limpar');
         const btnCarregarAssinatura = document.getElementById('btn-carregar-assinatura');
@@ -697,41 +695,43 @@
         const previewData = document.getElementById('preview-data');
         const previewMedico = document.getElementById('preview-medico');
         const previewCrm = document.getElementById('preview-crm');
-        const previewEspecialidade = document.getElementById('preview-especialidade');
         const previewObservacoes = document.getElementById('preview-observacoes');
         const previewMedicamentos = document.getElementById('preview-medicamentos');
 
         // Inicialização
-        document.addEventListener('DOMContentLoaded', function() {
-            // Adicionar primeiro medicamento
-            adicionarMedicamento();
-            
+        document.addEventListener('DOMContentLoaded', function () {
+
             // Configurar data atual
             const now = new Date();
             document.getElementById('data').value = now.toLocaleDateString('pt-BR');
-            
+
             // Atualizar preview inicial
             atualizarPreview();
-            
+
             // Configurar event listeners
             configurarEventListeners();
-            
+
             // Carregar assinatura salva se existir
             carregarAssinaturaSalva();
         });
 
         function configurarEventListeners() {
             // Atualizar preview quando campos mudarem
-            const campos = ['medico', 'crm', 'especialidade', 'paciente', 'Passaporte', 'data', 'observacoes'];
+            const campos = ['medico', 'crm', 'paciente', 'Passaporte', 'data', 'observacoes'];
             campos.forEach(campo => {
                 document.getElementById(campo).addEventListener('input', atualizarPreview);
             });
-            
+
+            // Adicionar event listener separado para a textarea de medicamentos
+            const medicamentosTexto = document.getElementById('medicamentos-texto');
+            if (medicamentosTexto) {
+                medicamentosTexto.addEventListener('input', atualizarPreview);
+            }
+
             // Botões de ação
-            btnAddMedicamento.addEventListener('click', adicionarMedicamento);
             btnGerarPDF.addEventListener('click', gerarPDF);
             btnLimpar.addEventListener('click', limparTudo);
-            
+
             // Assinatura
             btnCarregarAssinatura.addEventListener('click', () => assinaturaFile.click());
             btnRemoverAssinatura.addEventListener('click', removerAssinatura);
@@ -741,14 +741,14 @@
         function handleAssinaturaUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
-            
+
             if (!file.type.startsWith('image/')) {
                 alert('Por favor, selecione um arquivo de imagem (PNG, JPG, etc.)');
                 return;
             }
-            
+
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 assinaturaData = e.target.result;
                 atualizarAssinaturaPreview();
                 salvarAssinatura();
@@ -789,50 +789,6 @@
             }
         }
 
-        function adicionarMedicamento() {
-            medicamentoCount++;
-            const medicamentoId = `medicamento-${medicamentoCount}`;
-            
-            const medicamentoHTML = `
-                <div class="medicamento-item" id="${medicamentoId}">
-                    <div class="medicamento-header">
-                        <h4>Medicamento ${medicamentoCount}</h4>
-                        <button class="btn-remove" onclick="removerMedicamento('${medicamentoId}')">
-                            <i class="fas fa-times"></i> Remover
-                        </button>
-                    </div>
-                    <div class="form-group">
-                        <label for="medicamento-nome-${medicamentoCount}">Nome do Medicamento</label>
-                        <input type="text" id="medicamento-nome-${medicamentoCount}" placeholder="Ex: Paracetamol" oninput="atualizarPreview()">
-                    </div>
-                    <div class="form-group">
-                        <label for="medicamento-dosagem-${medicamentoCount}">Dosagem</label>
-                        <input type="text" id="medicamento-dosagem-${medicamentoCount}" placeholder="Ex: 500mg" oninput="atualizarPreview()">
-                    </div>
-                    <div class="form-group">
-                        <label for="medicamento-posologia-${medicamentoCount}">Posologia</label>
-                        <input type="text" id="medicamento-posologia-${medicamentoCount}" placeholder="Ex: 1 comprimido de 8/8 horas" oninput="atualizarPreview()">
-                    </div>
-                    <div class="form-group">
-                        <label for="medicamento-duracao-${medicamentoCount}">Duração do Tratamento</label>
-                        <input type="text" id="medicamento-duracao-${medicamentoCount}" placeholder="Ex: 7 dias" oninput="atualizarPreview()">
-                    </div>
-                </div>
-            `;
-            
-            medicamentosContainer.insertAdjacentHTML('beforeend', medicamentoHTML);
-            medicamentos.push(medicamentoId);
-        }
-
-        function removerMedicamento(id) {
-            const elemento = document.getElementById(id);
-            if (elemento) {
-                elemento.remove();
-                medicamentos = medicamentos.filter(med => med !== id);
-                atualizarPreview();
-            }
-        }
-
         function atualizarPreview() {
             // Dados básicos
             previewPaciente.textContent = document.getElementById('paciente').value || '—';
@@ -840,38 +796,30 @@
             previewData.textContent = document.getElementById('data').value || '—';
             previewMedico.textContent = document.getElementById('medico').value || '—';
             previewCrm.textContent = document.getElementById('crm').value || '—';
-            previewEspecialidade.textContent = document.getElementById('especialidade').value || '—';
             const observacoesTexto = document.getElementById('observacoes').value || '—';
             previewObservacoes.textContent = observacoesTexto;
-            
+
             // Medicamentos
+            const medicamentosTexto = document.getElementById('medicamentos-texto').value || '—';
             let medicamentosHTML = '';
-            
-            if (medicamentos.length === 0) {
+
+            if (!medicamentosTexto.trim() || medicamentosTexto === '—') {
                 medicamentosHTML = '<p>Nenhum medicamento adicionado.</p>';
             } else {
-                medicamentos.forEach((medId, index) => {
-                    const nome = document.getElementById(`medicamento-nome-${index + 1}`)?.value || '';
-                    const dosagem = document.getElementById(`medicamento-dosagem-${index + 1}`)?.value || '';
-                    const posologia = document.getElementById(`medicamento-posologia-${index + 1}`)?.value || '';
-                    const duracao = document.getElementById(`medicamento-duracao-${index + 1}`)?.value || '';
-                    
-                    if (nome || dosagem || posologia || duracao) {
-                        medicamentosHTML += `
-                            <div class="medicamento-preview">
-                                <p><strong>${nome} ${dosagem}</strong></p>
-                                <p>${posologia}</p>
-                                <p><em>Duração: ${duracao}</em></p>
-                            </div>
-                        `;
+                // Converter quebras de linha em elementos HTML
+                const linhas = medicamentosTexto.split('\n').filter(linha => linha.trim());
+                medicamentosHTML = linhas.map(linha => {
+                    if (linha.trim()) {
+                        return `
+                    <div class="medicamento-preview">
+                        <p class="texto-quebra">${linha}</p>
+                    </div>
+                `;
                     }
-                });
-                
-                if (!medicamentosHTML) {
-                    medicamentosHTML = '<p>Nenhum medicamento adicionado.</p>';
-                }
+                    return '';
+                }).join('');
             }
-            
+
             previewMedicamentos.innerHTML = medicamentosHTML;
         }
 
@@ -879,7 +827,7 @@
             // Criar elemento visível para captura
             const printContainer = document.createElement('div');
             printContainer.id = 'receita-print';
-            
+
             // Conteúdo da receita formatado para A4
             printContainer.innerHTML = `
                 <div class="receita-header">
@@ -907,12 +855,12 @@
                 <div class="assinatura-preview-final">
                     ${assinaturaData ? `<img src="${assinaturaData}" class="assinatura-imagem-final" alt="Assinatura">` : '<div class="assinatura-line"></div>'}
                     <p><strong>${document.getElementById('medico').value || '—'}</strong></p>
-                    <p>${document.getElementById('crm').value || '—'} - ${document.getElementById('especialidade').value || '—'}</p>
+                    <p>${document.getElementById('crm').value || '—'}</p>
                 </div>
             `;
-            
+
             document.body.appendChild(printContainer);
-            
+
             // Pequeno delay para garantir que o elemento seja renderizado
             setTimeout(() => {
                 html2canvas(printContainer, {
@@ -927,11 +875,11 @@
                 }).then(canvas => {
                     // Remover o container após a captura
                     document.body.removeChild(printContainer);
-                    
+
                     // Criar e disparar o download
                     const link = document.createElement('a');
                     const nomePaciente = document.getElementById('paciente').value || 'medica';
-                    const dataAtual = new Date().toISOString().slice(0,10);
+                    const dataAtual = new Date().toISOString().slice(0, 10);
                     link.download = `receita_${nomePaciente}_${dataAtual}.png`;
                     link.href = canvas.toDataURL('image/png', 1.0);
                     link.click();
@@ -944,58 +892,37 @@
         }
 
         function gerarHTMLMedicamentos() {
-            let medicamentosHTML = '';
-            
-            if (medicamentos.length === 0) {
-                medicamentosHTML = '<p>Nenhum medicamento adicionado.</p>';
-            } else {
-                medicamentos.forEach((medId, index) => {
-                    const nome = document.getElementById(`medicamento-nome-${index + 1}`)?.value || '';
-                    const dosagem = document.getElementById(`medicamento-dosagem-${index + 1}`)?.value || '';
-                    const posologia = document.getElementById(`medicamento-posologia-${index + 1}`)?.value || '';
-                    const duracao = document.getElementById(`medicamento-duracao-${index + 1}`)?.value || '';
-                    
-                    if (nome || dosagem || posologia || duracao) {
-                        medicamentosHTML += `
-                            <div class="medicamento-preview">
-                                <p><strong class="texto-quebra">${nome} ${dosagem}</strong></p>
-                                <p class="texto-quebra">${posologia}</p>
-                                <p><em class="texto-quebra">Duração: ${duracao}</em></p>
-                            </div>
-                        `;
-                    }
-                });
-                
-                if (!medicamentosHTML) {
-                    medicamentosHTML = '<p>Nenhum medicamento adicionado.</p>';
-                }
+            const medicamentosTexto = document.getElementById('medicamentos-texto').value || '—';
+
+            if (!medicamentosTexto.trim() || medicamentosTexto === '—') {
+                return '<p>Nenhum medicamento adicionado.</p>';
             }
-            
-            return medicamentosHTML;
+
+            const linhas = medicamentosTexto.split('\n').filter(linha => linha.trim());
+            return linhas.map(linha => `
+        <div class="medicamento-preview">
+            <p class="texto-quebra">${linha}</p>
+        </div>
+    `).join('');
         }
 
         function limparTudo() {
             if (confirm('Tem certeza que deseja limpar todos os dados?')) {
                 // Limpar campos de texto
-                const campos = ['medico', 'crm', 'especialidade', 'paciente', 'Passaporte', 'data', 'observacoes'];
+                const campos = ['medico', 'crm', 'paciente', 'Passaporte', 'data', 'observacoes'];
                 campos.forEach(campo => {
                     document.getElementById(campo).value = '';
                 });
-                
+
                 // Limpar medicamentos
-                medicamentosContainer.innerHTML = '';
-                medicamentos = [];
-                medicamentoCount = 0;
-                
+                document.getElementById('medicamentos-texto').value = '';
+
                 // Limpar assinatura
                 removerAssinatura();
-                
-                // Adicionar um medicamento vazio
-                adicionarMedicamento();
-                
+
                 // Atualizar preview
                 atualizarPreview();
-                
+
                 // Restaurar data atual
                 const now = new Date();
                 document.getElementById('data').value = now.toLocaleDateString('pt-BR');
@@ -1003,4 +930,5 @@
         }
     </script>
 </body>
+
 </html>
